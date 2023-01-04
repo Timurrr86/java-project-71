@@ -22,14 +22,14 @@ public class Differ {
 
         ObjectMapper objectMapper1 = new ObjectMapper();
         ObjectMapper objectMapper2 = new ObjectMapper();
-        Map<String, Object> map1 = objectMapper1.readValue(content1, new TypeReference<Map<String,Object>>(){});
-        Map<String, Object> map2 = objectMapper2.readValue(content2, new TypeReference<Map<String,Object>>(){});
+        Map<String, Object> map1 = objectMapper1.readValue(content1, new TypeReference<>() {});
+        Map<String, Object> map2 = objectMapper2.readValue(content2, new TypeReference<>() {});
 
-        System.out.println(output(getDifferences(map1, map2)));
+//        System.out.println(output(getDifferences(map1, map2)));
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        return mapper.writeValueAsString(output(getDifferences(map1, map2)));
-        return"";
+        return output(getDifferences(map1, map2));
 
     }
 
@@ -39,17 +39,22 @@ public class Differ {
         for (Map<String, Object> records : resultMap) {
             switch (records.get("status").toString()) {
                 case "removed":
-                    result.append(" - ").append(records.get("key")).append(": ").append(records.get("oldValue")).append("\n");
+                    result.append(" - ").append(records.get("key")).append(": ")
+                            .append(records.get("oldValue")).append("\n");
                     break;
                 case "added":
-                    result.append(" + ").append(records.get("key")).append(": ").append(records.get("newValue")).append("\n");
+                    result.append(" + ").append(records.get("key")).append(": ")
+                            .append(records.get("newValue")).append("\n");
                     break;
                 case "unchanged":
-                    result.append("   ").append(records.get("key")).append(": ").append(records.get("oldValue")).append("\n");
+                    result.append("   ").append(records.get("key")).append(": ")
+                            .append(records.get("oldValue")).append("\n");
                     break;
                 default:
-                    result.append(" - ").append(records.get("key")).append(": ").append(records.get("oldValue")).append("\n");
-                    result.append(" + ").append(records.get("key")).append(": ").append(records.get("newValue")).append("\n");
+                    result.append(" - ").append(records.get("key")).append(": ")
+                            .append(records.get("oldValue")).append("\n");
+                    result.append(" + ").append(records.get("key")).append(": ")
+                            .append(records.get("newValue")).append("\n");
                     break;
             }
         }
