@@ -13,7 +13,8 @@ public class DifferTest {
 
     @Test
     public void test1() throws Exception {
-        var expected = generate("src/test/resources/file1.json", "src/test/resources/file2.json");
+        String expected = generate("src/test/resources/file1.json", "src/test/resources/file2.json");
+
         Path path = Paths.get("src/test/resources/testFile.json").toAbsolutePath().normalize();
         String content = Files.readString(path);
 
