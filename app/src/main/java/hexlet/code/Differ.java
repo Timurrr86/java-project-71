@@ -1,8 +1,5 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,17 +17,12 @@ public class Differ {
         String content1 = Files.readString(path1);
         String content2 = Files.readString(path2);
 
-        ObjectMapper objectMapper1 = new ObjectMapper();
-        ObjectMapper objectMapper2 = new ObjectMapper();
-        Map<String, Object> map1 = objectMapper1.readValue(content1, new TypeReference<>() {
+        String extension1 = filePath1.substring(filePath1.indexOf(".") + 1);
+        String extension2 = filePath2.substring(filePath2.indexOf(".") + 1);
 
-        });
-        Map<String, Object> map2 = objectMapper2.readValue(content2, new TypeReference<>() {
+        Map<String, Object> map1 = Parser.getContent(content1, extension1);
+        Map<String, Object> map2 = Parser.getContent(content2, extension2);
 
-        });
-//        System.out.println(output(getDifferences(map1, map2)));
-//        ObjectMapper mapper = new ObjectMapper();
-//        return mapper.writeValueAsString(output(getDifferences(map1, map2)));
         return output(getDifferences(map1, map2));
 
     }
