@@ -12,3 +12,6 @@ step 7 сравнение плоских yml
 
 step 8 сравнение вложеных структур
 https://asciinema.org/a/HBmaSpanZJGuj7KcdFnePhmlC
+
+step 9 сравнение в plain формате
+https://asciinema.org/a/NyFH5tQf3scNLmeN4P7fhxu1g

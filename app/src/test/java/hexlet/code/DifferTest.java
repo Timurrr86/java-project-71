@@ -44,7 +44,7 @@ public class DifferTest {
 
     @Test
     public void testPlain() throws Exception {
-        String expected = generate("src/test/resources/step8_1.json", "src/test/resources/step8_2.json");
+        String expected = generate("src/test/resources/step8_1.json", "src/test/resources/step8_2.json", "plain");
         String content = getContent("src/test/resources/step9_plain.json");
 
         assertThat(expected).isEqualTo(content);
