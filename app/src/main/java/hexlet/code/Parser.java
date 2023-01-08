@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> getContent(String file, String extension) throws Exception {
+    public static Map<String, Object> parser(String file, String extension) throws Exception {
         if (file.isBlank() || file.isEmpty()) {
             return new HashMap<>();
         }

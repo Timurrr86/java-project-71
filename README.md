@@ -9,3 +9,6 @@ https://asciinema.org/a/GWJwoypA4I0mweZkINSivo1jf
 
 step 7 сравнение плоских yml
  https://asciinema.org/a/E8YjZsZG7Su4rWO9AesiSn9Z6
+
+step 8 сравнение вложеных структур
+https://asciinema.org/a/HBmaSpanZJGuj7KcdFnePhmlC

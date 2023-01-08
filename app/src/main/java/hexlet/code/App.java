@@ -19,14 +19,14 @@ public class App implements Callable<Integer> {
     @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
     private String filepath2;
 
-    @Option(names = { "-f", "--format" }, paramLabel = "format",
+    @Option(names = { "-f", "--format" }, paramLabel = "format", defaultValue = "stylish",
             description = "output format [default: stylish]")
     private String format = "stylish";
 
     @Override
     public Integer call() throws Exception {
         try {
-            System.out.println(Differ.generate(filepath1, filepath2));
+            System.out.println(Differ.generate(filepath1, filepath2, format));
             return 0;
         } catch (Exception e) {
             System.out.println(e.getMessage());
