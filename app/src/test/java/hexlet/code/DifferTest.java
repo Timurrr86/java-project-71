@@ -5,8 +5,11 @@ import org.junit.jupiter.api.Test;
 import static hexlet.code.Differ.generate;
 import static hexlet.code.Differ.getContent;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+
 
 public class DifferTest {
 
@@ -48,5 +51,21 @@ public class DifferTest {
         String content = getContent("src/test/resources/step9_plain.json");
 
         assertThat(expected).isEqualTo(content);
+    }
+
+    @Test
+    public void testJson1() throws Exception {
+        String expected = generate("src/test/resources/step8_1.json", "src/test/resources/step8_2.json", "json");
+        String content = getContent("src/test/resources/step10_result.json");
+
+        assertEquals(expected, content.trim());
+    }
+
+    @Test
+    public void testJson2() throws Exception {
+        String expected = generate("src/test/resources/step8_1.yml", "src/test/resources/step8_2.yml", "json");
+        String content = getContent("src/test/resources/step10_result.json");
+
+        assertThat(expected).isEqualTo(content.trim());
     }
 }

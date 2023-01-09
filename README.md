@@ -15,3 +15,9 @@ https://asciinema.org/a/HBmaSpanZJGuj7KcdFnePhmlC
 
 step 9 сравнение в plain формате
 https://asciinema.org/a/NyFH5tQf3scNLmeN4P7fhxu1g
+
+step 10 вывод в json формате
+https://asciinema.org/a/GTqWw2K6kkUzV7njaB8rxRqoo
+
+step 10 with writerWithDefaultPrettyPrinter()
+https://asciinema.org/a/Dudp7VNyxzNABfofJDvd9PSa0

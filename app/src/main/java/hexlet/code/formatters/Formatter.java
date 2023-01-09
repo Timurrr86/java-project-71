@@ -6,6 +6,8 @@ import java.util.Map;
 public class Formatter {
     public static String makeFormat(List<Map<String, Object>> resultMap, String format) throws Exception {
         switch (format) {
+            case "json":
+                return Json.makeJson(resultMap);
             case "stylish":
                 return Stylish.makeStylish(resultMap);
             case "plain":
