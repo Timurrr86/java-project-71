@@ -8,15 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parser(String file, String extension) throws Exception {
+    public static Map<String, Object> parser(String file, String data) throws Exception {
         if (file.isBlank() || file.isEmpty()) {
             return new HashMap<>();
         }
-        if (extension.equals("json")) {
+        if (data.equals("json")) {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.readValue(file, new TypeReference<>() {
             });
-        } else if (extension.equals("yml") || extension.equals("yaml")) {
+        } else if (data.equals("yml") || data.equals("yaml")) {
             ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
             return objectMapper.readValue(file, new TypeReference<>() {
             });
