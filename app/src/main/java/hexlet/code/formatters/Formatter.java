@@ -13,7 +13,7 @@ public class Formatter {
             case "plain":
                 return Plain.makePlain(resultMap);
             default:
-                throw new Exception("Unknown format!");
+                throw new Exception("Unknown format: " + format);
         }
     }
 }

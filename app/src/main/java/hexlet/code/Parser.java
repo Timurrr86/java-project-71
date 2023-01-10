@@ -12,17 +12,18 @@ public class Parser {
         if (file.isBlank() || file.isEmpty()) {
             return new HashMap<>();
         }
-        if (data.equals("json")) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(file, new TypeReference<>() {
-            });
-        } else if (data.equals("yml") || data.equals("yaml")) {
-            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-            return objectMapper.readValue(file, new TypeReference<>() {
-            });
-        } else {
-            throw new Exception("Unknown format");
+        switch (data) {
+            case "json" -> {
+                ObjectMapper objectMapper = new ObjectMapper();
+                return objectMapper.readValue(file, new TypeReference<>() {
+                });
+            }
+            case "yml", "yaml" -> {
+                ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+                return objectMapper.readValue(file, new TypeReference<>() {
+                });
+            }
+            default -> throw new Exception("Unknown format" + data);
         }
-
     }
 }

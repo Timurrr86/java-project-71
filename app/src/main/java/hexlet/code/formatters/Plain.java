@@ -20,11 +20,13 @@ public class Plain {
                     break;
                 case "unchanged":
                     break;
-                default:
+                case "changed":
                     result.append("Property '").append(records.get("key")).append("' was updated. From ")
                             .append(oldValue).append(" to ")
                             .append(newValue).append("\n");
                     break;
+                default:
+                    throw new Error("Unknown status!" + records.get("status"));
             }
         }
         return result.toString();
