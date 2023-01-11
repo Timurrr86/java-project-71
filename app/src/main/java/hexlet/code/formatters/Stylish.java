@@ -29,7 +29,7 @@ public class Stylish {
                     break;
             }
         }
-        result.append("}\n");
+        result.append("}");
         return result.toString();
     }
 }
