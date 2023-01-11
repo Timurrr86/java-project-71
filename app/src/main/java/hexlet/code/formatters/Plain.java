@@ -29,7 +29,7 @@ public class Plain {
                     throw new Error("Unknown status!" + records.get("status"));
             }
         }
-        return result.toString();
+        return result.toString().trim();
     }
     public static String checkValue(Object value) {
         if (value instanceof Map || value instanceof List<?>) {
