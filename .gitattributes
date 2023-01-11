@@ -5,4 +5,4 @@
 *.bat           text eol=crlf
 
 # All files are checked into the repo with LF
-* text=auto
+#* text=auto
