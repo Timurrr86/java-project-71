@@ -14,8 +14,8 @@ public class Differ {
         String content1 = getContent(filePath1);
         String content2 = getContent(filePath2);
 
-        String extension1 = filePath1.substring(filePath1.indexOf(".") + 1);
-        String extension2 = filePath2.substring(filePath2.indexOf(".") + 1);
+        String extension1 = getDataFormat(filePath1);
+        String extension2 = getDataFormat(filePath2);
 
         Map<String, Object> map1 = Parser.parser(content1, extension1);
         Map<String, Object> map2 = Parser.parser(content2, extension2);
@@ -30,6 +30,11 @@ public class Differ {
     public static String getContent(String filePath) throws Exception {
         Path path = Paths.get(filePath.substring(filePath.indexOf("src"))).toAbsolutePath().normalize();
         return Files.readString(path);
+    }
+
+    private static String getDataFormat(String filePath) {
+        int index = filePath.lastIndexOf('.');
+        return index > 0 ? filePath.substring(index + 1) : "";
     }
 
 }
