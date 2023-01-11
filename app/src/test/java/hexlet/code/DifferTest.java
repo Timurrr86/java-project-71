@@ -58,7 +58,7 @@ public class DifferTest {
         String expected = generate("src/test/resources/step8_1.json", "src/test/resources/step8_2.json", "json");
         String content = getContent("src/test/resources/step10_result.json");
 
-        assertEquals(expected, content.trim());
+        assertEquals(expected, content);
     }
 
     @Test
@@ -66,6 +66,6 @@ public class DifferTest {
         String expected = generate("src/test/resources/step8_1.yml", "src/test/resources/step8_2.yml", "json");
         String content = getContent("src/test/resources/step10_result.json");
 
-        assertThat(expected).isEqualTo(content.trim());
+        assertThat(expected).isEqualTo(content);
     }
 }
