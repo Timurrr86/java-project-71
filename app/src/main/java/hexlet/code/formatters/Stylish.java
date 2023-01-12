@@ -18,7 +18,7 @@ public class Stylish {
                             .append(records.get("newValue")).append("\n");
                     break;
                 case "unchanged":
-                    result.append(" ".repeat(4)).append(records.get("key")).append(": ")
+                    result.append("    ").append(records.get("key")).append(": ")
                             .append(records.get("oldValue")).append("\n");
                     break;
                 default:
