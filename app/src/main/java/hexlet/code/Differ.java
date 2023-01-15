@@ -28,7 +28,7 @@ public class Differ {
     }
 
     public static String getContent(String filePath) throws Exception {
-        Path path = Paths.get(filePath.substring(filePath.indexOf("src"))).toAbsolutePath().normalize();
+        Path path = Paths.get("src", "test", "resources", filePath).toAbsolutePath().normalize();
         return Files.readString(path);
     }
 
