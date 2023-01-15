@@ -19,6 +19,12 @@ public class DifferTest {
     private static String resultPlain;
     private static String resultStylish;
     private static String resultBlank;
+    private static final String FILE1_JSON = "src/test/resources/file1.json";
+    private static final String FILE2_JSON = "src/test/resources/file2.json";
+    private static final String FILE1_YML = "src/test/resources/file1.yml";
+    private static final String FILE2_YML = "src/test/resources/file2.yml";
+    private static final String BLANK_FILE = "src/test/resources/blankFile.json";
+    private static final String INCORRECT_FILE_FORMAT = "src/test/resources/file.abc";
 
     private static Path getFixturePath(String fileName) {
         return Paths.get("src", "test", "resources", "fixtures", fileName)
@@ -40,56 +46,50 @@ public class DifferTest {
 
     @Test
     public void testEmptyFile() throws Exception {
-        String expected = generate("blankFile.json", "blankFile.json");
+        String expected = generate(BLANK_FILE, BLANK_FILE);
 
         assertThat(expected).isEqualTo(resultBlank);
     }
 
     @Test
     public void testUnknownFormat() {
-        Throwable thrown = assertThrows(Exception.class, () -> generate("file.abc", "file.abc"));
+        Throwable thrown = assertThrows(Exception.class, () -> generate(INCORRECT_FILE_FORMAT, INCORRECT_FILE_FORMAT));
         assertNotNull(thrown.getMessage());
     }
 
     @Test
     public void testStylishJson() throws Exception {
-        String expected = generate("file1.json", "file2.json");
-
+        String expected = generate(FILE1_JSON, FILE2_JSON);
         assertThat(expected).isEqualTo(resultStylish);
     }
 
     @Test
     public void testStylishYml() throws Exception {
-        String expected = generate("file1.yml", "file2.yml");
-
+        String expected = generate(FILE1_YML, FILE2_YML);
         assertThat(expected).isEqualTo(resultStylish);
     }
 
     @Test
     public void testPlainJson() throws Exception {
-        String expected = generate("file1.json", "file2.json", "plain");
-
+        String expected = generate(FILE1_JSON, FILE2_JSON, "plain");
         assertThat(expected).isEqualTo(resultPlain);
     }
 
     @Test
     public void testPlainYml() throws Exception {
-        String expected = generate("file1.yml", "file2.yml", "plain");
-
+        String expected = generate(FILE1_YML, FILE2_YML, "plain");
         assertThat(expected).isEqualTo(resultPlain);
     }
 
     @Test
     public void testJsonFromJson() throws Exception {
-        String expected = generate("file1.json", "file2.json", "json");
-
+        String expected = generate(FILE1_JSON, FILE2_JSON, "json");
         assertEquals(expected, resultJson);
     }
 
     @Test
     public void testJsonFromYml() throws Exception {
-        String expected = generate("file1.yml", "file2.yml", "json");
-
+        String expected = generate(FILE1_YML, FILE2_YML, "json");
         assertThat(expected).isEqualTo(resultJson);
     }
 }
