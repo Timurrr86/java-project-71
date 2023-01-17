@@ -8,7 +8,7 @@ public class Stylish {
         StringBuilder result = new StringBuilder("{\n");
 
         for (Map<String, Object> records : resultMap) {
-            switch (records.get("status").toString()) {
+            switch (records.get("status") != null ? records.get("status").toString() : "") {
                 case "removed" -> result.append("  - ").append(records.get("key")).append(": ")
                         .append(records.get("oldValue")).append("\n");
                 case "added" -> result.append("  + ").append(records.get("key")).append(": ")

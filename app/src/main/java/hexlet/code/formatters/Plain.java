@@ -10,7 +10,7 @@ public class Plain {
         for (Map<String, Object> records : resultMap) {
             String oldValue = checkValue(records.get("oldValue"));
             String newValue = checkValue(records.get("newValue"));
-            switch (records.get("status").toString()) {
+            switch (records.get("status") != null ? records.get("status").toString() : "") {
                 case "removed":
                     result.append("Property '").append(records.get("key")).append("' was removed\n");
                     break;
