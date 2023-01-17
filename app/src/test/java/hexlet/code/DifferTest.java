@@ -59,13 +59,13 @@ public class DifferTest {
 
     @Test
     public void testStylishJson() throws Exception {
-        String expected = generate(FILE1_JSON, FILE2_JSON);
+        String expected = generate(FILE1_JSON, FILE2_JSON, "stylish");
         assertThat(expected).isEqualTo(resultStylish);
     }
 
     @Test
     public void testStylishYml() throws Exception {
-        String expected = generate(FILE1_YML, FILE2_YML);
+        String expected = generate(FILE1_YML, FILE2_YML, "stylish");
         assertThat(expected).isEqualTo(resultStylish);
     }
 
