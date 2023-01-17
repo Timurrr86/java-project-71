@@ -9,24 +9,19 @@ public class Stylish {
 
         for (Map<String, Object> records : resultMap) {
             switch (records.get("status").toString()) {
-                case "removed":
-                    result.append("  - ").append(records.get("key")).append(": ")
-                            .append(records.get("oldValue")).append("\n");
-                    break;
-                case "added":
-                    result.append("  + ").append(records.get("key")).append(": ")
-                            .append(records.get("newValue")).append("\n");
-                    break;
-                case "unchanged":
-                    result.append("    ").append(records.get("key")).append(": ")
-                            .append(records.get("oldValue")).append("\n");
-                    break;
-                default:
+                case "removed" -> result.append("  - ").append(records.get("key")).append(": ")
+                        .append(records.get("oldValue")).append("\n");
+                case "added" -> result.append("  + ").append(records.get("key")).append(": ")
+                        .append(records.get("newValue")).append("\n");
+                case "unchanged" -> result.append("    ").append(records.get("key")).append(": ")
+                        .append(records.get("oldValue")).append("\n");
+                case "changed" -> {
                     result.append("  - ").append(records.get("key")).append(": ")
                             .append(records.get("oldValue")).append("\n");
                     result.append("  + ").append(records.get("key")).append(": ")
                             .append(records.get("newValue")).append("\n");
-                    break;
+                }
+                default -> throw new Error("Unknown status!" + records.get("status"));
             }
         }
         result.append("}");
